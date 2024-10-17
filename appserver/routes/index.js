@@ -1,34 +1,21 @@
 var express = require('express');
 var router = express.Router();
+const hubMain = require('../controllers/main'); 
+const hubController = require('../controllers/locations'); 
+const hubOthers = require('../controllers/others'); 
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// Route for Discussion Forums
-router.get('/discussion-forums', (req, res) => {
-    res.send('Discussion Forums Page');
-});
+router.get('/discussion-forums', hubController.Discussion_forms);
+router.get('/events',hubController.Events);
+router.get('/polls-surveys',hubController.Polls_surveys);
+router.get('/tutorial-videos',hubController.Tutorial_videos);
 
-// Route for Tutorial Videos
-router.get('/tutorial-videos', (req, res) => {
-    res.send('Tutorial Videos Page');
-});
+router.get('/contact-us',hubOthers.contact);
+router.get('/about',hubOthers.about);
 
-// Route for Events
-router.get('/events', (req, res) => {
-    res.send('Events Page');
-});
 
-// Route for Polls & Surveys
-router.get('/polls-surveys', (req, res) => {
-    res.send('Polls & Surveys Page');
-});
-
-// Route for Contact Us
-router.get('/contact-us', (req, res) => {
-    res.send('Contact Us Page');
-});
-
-module.exports = router;
+module.exports = router

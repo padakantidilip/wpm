@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2(style="margin-top:100px") Polls & Surveys
+  .polls-container
+    each poll in polls
+      .poll-item
+        h3= poll.question
+        ul.options-list
+          each option in poll.options
+            li
+              label
+                input(type='radio', name=poll.id, value=option)
+                | #{option}
+      button.btn.btn-primary(type='submit') Submit

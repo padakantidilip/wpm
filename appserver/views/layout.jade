@@ -1,18 +1,40 @@
-layout.jade
 doctype html
 html
   head
-    meta(name = 'Viewport', content='Width=device-width',intial-scale=1.0)
+    meta(name='viewport', content='width=device-width', initial-scale=1.0)
     title= title
-    link(rel='stylesheet',href='/bootstrap/css/amelia.bootstrap.css')
+    link(rel='stylesheet', href='/bootstrap/css/amelia.bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') Hobbyist Community
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar-main.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/discussion-forums') 
+                b Discussion Forums
+            li
+              a(href='/tutorial-videos') 
+                b Tutorial Videos
+            li
+              a(href='/events') 
+                b Events
+            li
+              a(href='/polls-surveys') 
+                b Polls & Surveys
+
     .container
       block content
       footer
-        .row
-          .col-xs-12
-            small &copy;Hobbist Community Application 2024
-    
+      .row
+        .col-xs-12
+          
+
 script(src='/javascripts/jquery-1.11.1.min.js')
 script(src='/javascripts/jquery-1.11.1.min.js')

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .container
+    h1(style="margin-top:100px") Discussion Forums
+    p Browse through various topics and join the discussion with other community members.
+
+    h2 Forum Categories
+    ul.forum-categories
+      li
+        a(href='/discussion-forums/technology') Technology
+      li
+        a(href='/discussion-forums/crafts') Crafts & DIY
+      li
+        a(href='/discussion-forums/hobbies') Hobbies & Interests
+      li
+        a(href='/discussion-forums/general') General Discussion
+
+    h2 Start a New Discussion
+    form(method='post', action='/discussion_forums/new')
+      .form-group
+        label(for='title') Title
+        input#title.form-control(type='text', name='title', placeholder='Enter your discussion title')
+      
+      .form-group
+        label(for='category') Category
+        select#category.form-control(name='category')
+          option(value='technology') Technology
+          option(value='crafts') Crafts & DIY
+          option(value='hobbies') Hobbies & Interests
+          option(value='general') General Discussion
+
+      .form-group
+        label(for='content') Discussion Content
+        textarea#content.form-control(name='content', rows='5', placeholder='Write your discussion content here')
+
+      button.btn.btn-primary(type='submit') Submit

@@ -1,5 +1,88 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    // Header Section
+    .header-section(style="text-align: center; margin-top: 50px;")
+      h1 Welcome to Hobbyist Community!
+      p Discover amazing content and resources tailored just for you.
+
+    // Carousel for Featured Content
+    .carousel.slide#featuredCarousel(data-ride="carousel")
+      .carousel-inner
+        .carousel-item.active
+          h5 Unlock Your Potential with Our Tutorials
+          p Learn new skills with our comprehensive tutorials on various topics ranging from programming to design.
+
+        .carousel-item
+          h5 Engage with Your Peers in Our Discussion Forums
+          p Join our discussion forums to connect, share ideas, and collaborate on projects with like-minded individuals.
+
+        .carousel-item
+          h5 Stay Updated with the Latest Events
+          p Be part of our vibrant community by attending events and webinars that cater to your interests.
+
+      // Carousel Controls
+      a.carousel-control-prev(href='#featuredCarousel', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#featuredCarousel', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+
+    // Featured Sections
+    .featured-sections(style="margin-top: 30px;")
+      h2 Featured Sections
+      .row
+        .col-md-4
+          .card
+            .card-body
+              h3.card-title Polls & Surveys
+              p Participate in interactive polls to express your opinions and see what others think about various topics.
+              a.btn.btn-primary(href='/polls-surveys') Go to Polls & Surveys
+
+        .col-md-4
+          .card
+            .card-body
+              h3.card-title Tutorial Videos
+              p Watch our curated selection of tutorial videos that make learning easy and enjoyable.
+              a.btn.btn-primary(href='/tutorial-videos') Watch Tutorial Videos
+
+        .col-md-4
+          .card
+            .card-body
+              h3.card-title Upcoming Events
+              p Check out our calendar of events to stay informed about workshops, webinars, and networking opportunities.
+              a.btn.btn-primary(href='/events') View Upcoming Events
+
+    // Testimonials Section
+    .testimonials(style="margin-top: 50px;")
+      h2 Testimonials
+      .row
+        .col-md-4
+          blockquote
+            p "This website has changed my life! The resources are top-notch."
+            footer - John Doe, Tech Enthusiast
+
+        .col-md-4
+          blockquote
+            p "I love the community and the discussions we have here!"
+            footer - Jane Smith, Avid Learner
+
+        .col-md-4
+          blockquote
+            p "The tutorials are easy to follow and very informative."
+            footer - Sam Wilson, Developer
+
+    // Newsletter Subscription
+    .newsletter(style="margin-top: 50px; text-align: center;")
+      h2 Subscribe to Our Newsletter
+      p Stay updated with our latest news and offers!
+      form(action='/subscribe', method='POST')
+        input(type='email', placeholder='Enter your email', required)
+        button.btn.btn-success(type='submit') Subscribe
+
+    // Footer
+    footer(style="margin-top: 50px; text-align: center;")
+      p &copy; 2024 Hobbyist Community. All rights reserved.
+      a(href='/about') Learn More About Us

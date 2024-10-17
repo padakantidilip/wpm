@@ -1,0 +1,47 @@
+//- doctype html
+//- html
+//-   head
+//-     title Header Example
+//-     //- link(rel='stylesheet', href='/stylesheets/style.css')
+//-   body
+//-     include layout.jade
+//-     header
+//-       h1(style="margin-top:100px") Events
+      
+// events.jade
+doctype html
+html
+  head
+    title Events
+    //- meta(charset='UTF-8')
+    //- meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+
+  body
+    include layout.jade
+    .container(style='padding-top: 80px')
+      .row
+        .col-md-12
+          h1 Events
+          p Here are the upcoming events. Join us for these exciting gatherings!
+
+          .event-list
+            each event in events
+              .event-card.row(style='margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px')
+                .col-md-4
+                  h3= event.name
+                  p.date.text-muted
+                    span Date: 
+                    span= event.date
+                  p.location.text-muted
+                    span Location: 
+                    span= event.location
+                .col-md-8
+                  p.description= event.description
+
+    footer.footer(style='margin-top: 50px; padding: 20px; background-color: #f5f5f5')
+      .container
+        .row
+          .col-md-12
+            p &copy; 2024 Events Page. All rights reserved.
