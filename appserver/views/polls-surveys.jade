@@ -1,15 +1,38 @@
 extends layout
 
 block content
-  h2(style="margin-top:100px") Polls & Surveys
-  .polls-container
-    each poll in polls
-      .poll-item
-        h3= poll.question
-        ul.options-list
-          each option in poll.options
-            li
-              label
-                input(type='radio', name=poll.id, value=option)
-                | #{option}
-      button.btn.btn-primary(type='submit') Submit
+  .container
+    h2(style="margin-top: 100px") Polls & Surveys
+
+    // Loop through each category of polls
+    each category in pollCategories
+      .category-section(style="margin-bottom: 50px;")
+        h3= category.name
+        p= category.description
+        
+        .polls-list
+          each poll in category.polls
+            .poll-item(style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px;")
+              h4= poll.question
+              p= poll.description
+              
+              ul.options-list
+                each option in poll.options
+                  li
+                    label
+                      input(type='radio', name=poll.id, value=option)
+                      | #{option}
+              button.btn.btn-primary(type='submit', style='margin-top: 10px;') Submit
+
+    // Additional Information Section
+    .additional-info(style="margin-top: 50px; text-align: center;")
+      h2 Share Your Thoughts!
+      p We value your feedback. Let us know what you think about our website and services.
+      form(action='/feedback', method='POST')
+        input(type='text', placeholder='Your feedback', required)
+        button.btn.btn-success(type='submit') Submit Feedback
+
+    // Footer
+    footer(style="margin-top: 50px; text-align: center;")
+      p &copy; 2024 Your Company Name. All rights reserved.
+      a(href='/about') Learn More About Us

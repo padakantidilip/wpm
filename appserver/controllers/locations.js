@@ -33,21 +33,66 @@ module.exports.Events = (req, res) => {
 //     res.render('polls-surveys', { title: 'Polls-surveys' });
 // };
 module.exports.Polls_surveys = (req, res) => {
-    const polls = [
+  const pollCategories = [
       {
-        id: '1',
-        question: 'What is your favorite color?',
-        options: ['Red', 'Blue', 'Green']
+          name: 'Favorite Hobbies',
+          description: 'Let us know your favorite hobbies!',
+          polls: [
+              {
+                  id: '1',
+                  question: 'Which of these hobbies do you enjoy the most?',
+                  description: 'Choose one from the options below.',
+                  options: ['Reading', 'Traveling', 'Gardening', 'Cooking']
+              },
+              {
+                  id: '2',
+                  question: 'How many hours a week do you spend on your hobbies?',
+                  description: 'We’d love to know how much time you dedicate to your interests.',
+                  options: ['Less than 1 hour', '1-3 hours', '3-5 hours', 'More than 5 hours']
+              }
+          ]
       },
       {
-        id: '2',
-        question: 'Which programming language do you prefer?',
-        options: ['JavaScript', 'Python', 'Java']
+          name: 'Tech Preferences',
+          description: 'Tell us about your tech preferences!',
+          polls: [
+              {
+                  id: '3',
+                  question: 'Which programming language do you prefer?',
+                  description: 'We’d love to know your favorite coding language.',
+                  options: ['JavaScript', 'Python', 'Java', 'C#']
+              },
+              {
+                  id: '4',
+                  question: 'What type of device do you use the most?',
+                  description: 'Choose the device you rely on daily.',
+                  options: ['Desktop', 'Laptop', 'Tablet', 'Smartphone']
+              }
+          ]
+      },
+      {
+          name: 'Food Preferences',
+          description: 'Share your food preferences with us!',
+          polls: [
+              {
+                  id: '5',
+                  question: 'What type of cuisine do you enjoy the most?',
+                  description: 'Choose your favorite cuisine from the options below.',
+                  options: ['Italian', 'Chinese', 'Mexican', 'Indian']
+              },
+              {
+                  id: '6',
+                  question: 'Do you prefer sweet or savory snacks?',
+                  description: 'Let us know your snack preferences!',
+                  options: ['Sweet', 'Savory', 'Both', 'Neither']
+              }
+          ]
       }
-    ];
-  
-    res.render('polls-surveys', { title: 'Polls-surveys', polls: polls });
-  };
+  ];
+
+  res.render('polls-surveys', { title: 'Polls & Surveys', pollCategories });
+};
+
   
 
 module.exports.Tutorial_videos = (req, res) => {
