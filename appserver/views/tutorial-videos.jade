@@ -112,13 +112,18 @@ html
                   p Your browser does not support the video tag.
               p.video-description Expert Tutorial 3
 
-    // Footer
-    footer.footer(style='margin-top: 50px; padding: 20px; background-color: #f5f5f5')
-      .container
-        .row
-          .col-md-12
-            p &copy; 2024 Tutorial Project. All rights reserved.
+    
+    .additional-info(style="margin-top: 50px; text-align: center;")
+      h2 Share Your Thoughts!
+      p We value your feedback. Let us know what you think about our website and services.
+      form(action='/feedback', method='POST')
+        input(type='text', placeholder='Your feedback', required)
+        button.btn.btn-success(type='submit') Submit Feedback
 
+    // Footer
+    footer(style="margin-top: 50px; text-align: center;")
+      p &copy; 2024 Hobbyist Community. All rights reserved.
+      a(href='/about') Learn More About Us
     // Scripts
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
